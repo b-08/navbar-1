@@ -1,0 +1,262 @@
+* {
+    font-family: 'Barlow Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 3000px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar {
+    display: block;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #333;
+    box-shadow: 2px 2px 8px 0 rgba(0,0,0,.7);
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar .logo {
+    display: flex;
+    padding-left: 17px;
+    font-size: 1.4em;
+    background-color: transparent;
+    position: absolute;
+    left: auto;
+    right: auto;
+    width: 95%;
+    /* background-color: red; */
+    margin: 10px auto;
+}
+
+/* .navbar a.logo {
+    margin-left: 10px;
+} */
+
+.navbar ul {
+    margin-top: 50px;
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 95%;
+}
+
+.navbar li a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+}
+
+/* menu */
+.navbar .menu {
+    max-height: 0;
+    transition: max-height .2s;
+}
+/* menu */
+
+
+
+/* burger */
+.navbar .burger {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    float: right;
+    right: 15px;
+    top: 5px;
+    user-select: none;
+    /* background-color: red; */
+}
+
+.navbar .burger-icon {
+    background: white;
+    height: 3px;
+    width: 20px;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: 18px;
+    right: 13px;
+    /* float: right; */
+    /* transition: all .2s ease-out; */
+    border-radius: 4px;
+}
+
+.navbar .burger .burger-icon::before,
+.navbar .burger .burger-icon::after {
+    background: white;
+    height: 3px;
+    width: 20px;
+    display: block;
+    position: absolute;
+    /* width: 100%; */
+    border-radius: 4px;
+    transition: .1s;
+}
+
+.navbar .burger .burger-icon::before {
+    top: 5px;
+}
+.navbar .burger .burger-icon::after {
+    top: -5px;
+}
+/* burger */
+
+/* burger button */
+.navbar .burger-btn {
+    position: absolute;
+    /* opacity: 0; */
+    display: none;
+    cursor: pointer;
+}
+
+.navbar .burger-btn:checked ~ ul.menu{
+    max-height: 500px;
+    border-top: 1px solid white;
+}
+
+.navbar .burger-btn:checked ~ span.burger-icon {
+    background-color: red;
+}
+
+.navbar .burger-btn:checked ~ .burger .burger-icon {
+    background: transparent;
+}
+
+.navbar .burger-btn:checked ~ .burger .burger-icon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.navbar .burger-btn:checked ~ .burger .burger-icon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+/* burger button */
+
+
+@media (min-width: 55em) {
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        box-sizing: border-box;
+        /* padding: 10px 0; */
+        max-height: 55px;
+        align-items: center;
+    }
+
+    .navbar .logo {
+        /* padding: 15px 0; */
+        width: 30%;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+        position: static;
+        padding-bottom: 5px;
+    }
+
+    .navbar a.logo {
+        display: flex;
+        align-items: flex-end;
+        font-size: 2em;
+        text-align: center;
+        height: 100%;
+    }
+
+    .navbar .burger-btn:checked ~ ul.menu {
+        border-top: none;
+    }
+
+    .navbar .menu {
+        display: flex;
+        max-height: none;
+        width: 70%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    .navbar li a {
+        padding: 0;
+        font-size: 1.3em;
+    }
+
+    .navbar .burger-btn {
+        display: none;
+    }
+
+    .navbar .burger {
+        display: none;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+ .cf:before,
+ .cf:after {
+     content: " "; /* 1 */
+     display: table; /* 2 */
+ }
+ 
+ .cf:after {
+     clear: both;
+ }
+ 
+ /**
+  * For IE 6/7 only
+  * Include this rule to trigger hasLayout and contain floats.
+  */
+ .cf {
+     *zoom: 1;
+ }
